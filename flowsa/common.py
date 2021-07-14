@@ -372,12 +372,11 @@ def create_fill_na_dict(flow_by_fields):
     for k, v in flow_by_fields.items():
         if v[0]['dtype'] == 'str':
             fill_na_dict[k] = ""
-        elif v[0]['dtype'] == 'int' and k != 'FlowAmount':
+        elif v[0]['dtype'] == 'int':
             fill_na_dict[k] = 0.0
-        elif v[0]['dtype'] == 'int' and k == 'FlowAmount':
-            fill_na_dict[k] = np.nan
         elif v[0]['dtype'] == 'float':
-            fill_na_dict[k] = 0.0
+            fill_na_dict[k] = np.nan
+
     return fill_na_dict
 
 
